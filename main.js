@@ -95,22 +95,25 @@ const key = "99270389-23D4-4084-813C-1B77A1EEAB25";
         var curr2 = document.getElementById("dropButton2").innerHTML;
         var curr3 = document.getElementById("dropButton3").innerHTML;
         if (curr3 == "Select Currency") {
+          // Convert currencies in curr1 and curr2
           if (curr1 == "Select Currency") {
-            convertCurr(1, curr2, curr1); // Convert the value in curr2 into the value of curr1
-          } else if (curr2 == "Select Currency") {
-            convertCurr(2, curr1, curr2) // Convert the value in curr1 into the value of curr2
-          } else {
-            console.log("Missing currency types");
+            console.log("Missing 1st currency type");
+            return;
           }
-          return;
-        }
-
-        if (curr1 == "Select Currency") {
-          convertToCrypto(curr2, curr3); // Convert the value in curr2 into the value of curr3
-        } else if (curr2 == "Select Currency") {
-          convertToCrypto(curr1, curr3); // Conver the value in curr1 into the value of curr3
+          if (curr2 == "Select Currency") {
+            console.log("Missing 2nd currency type");
+            return;
+          }
+          convertCurr(curr1, curr2);
         } else {
-          console.log("Missing currency types");
+          // Convert currencies in curr1 / curr2 into curr3
+          if (curr1 != "Select Currency") {
+            convertToCrypto(curr1, curr3);
+          } else if (curr2 != "Select Currency") {
+            convertToCrypto(curr2, curr3);
+          } else {
+            console.log("Missing currencies to convert");
+          }
         }
       })
 
@@ -118,21 +121,36 @@ const key = "99270389-23D4-4084-813C-1B77A1EEAB25";
         var base1 = document.getElementById("dropButton1").innerHTML;
         var base2 = document.getElementById("dropButton2").innerHTML;
         var crypto = document.getElementById("dropButton3").innerHTML;
+        if (crypto == "Select Currency") {
+          console.log("Missing 3rd currency type");
+          return;
+        }
+
         if (base1 != "Select Currency") {
           convertFromCrypto(1, base1, crypto);
+        } else {
+          console.log("Missing 1st currency type");
         }
+
         if (base2 != "Select Currency") {
           convertFromCrypto(2, base2, crypto);
-          return
+        } else {
+          console.log("Missing 2nd currency type");
         }
-        console.log("Missing currency types");
       })
     }
   
   })(window, document, undefined);
 
-async function convertCurr(form, base, expected) {
-  
+async function convertCurr(base, expected) {
+  let amount = document.getElementById("curr1").value;
+  if (amount != "") {
+    const body = await rp(url + base + "/" + expected + "?apikey=" + key);
+    let responseJSON = JSON.parse(body);
+    document.getElementById("curr2").value = (amount * responseJSON.rate).toFixed(4) + "";
+  } else {
+    console.log("Missing values to convert");
+  }
 }
 
 async function convertFromCrypto(form, base, crypto) {
