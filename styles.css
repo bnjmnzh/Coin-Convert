@@ -8,6 +8,17 @@ body {
     font-size: 18px;
 }
 
+.calculator{
+  position: absolute;
+  width: 600px;
+  height: 200px;
+  top: 50%;
+  left: 50%;
+  margin: -100px 0 0 -300px;
+  z-index: 15;
+  background-color: rgb(214, 161, 69);
+}
+
 .container{
     width: 80%;
     margin: 0 auto;
@@ -32,11 +43,13 @@ header a.logo{
 }
 
 input {
-  width: 100px;
+  position: relative;
+  display: inline;
   padding: 12px 20px;
   margin: 8px 0;
   position: relative;
   top: 15px;
+  left: 30px;
   font-size: 14px;
 }
 
@@ -44,7 +57,81 @@ input:focus {
   border: 3px solid #555;
 }
 
-.curr1 {
+.equals{
+  position: relative;
+  display: inline;
+  left: 30px;
+  top: 25px;
+  margin: 15px 15px;
+  padding: 20px 20px;
+  font-size: 40px;
+  font-weight: bold;
+}
+
+/* Dropdown Button */
+.dropbtn {
+    background-color: #E1C699;
+    color: white;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+  }
+  
+/* Dropdown button on hover & focus */
+.dropbtn:hover, .dropbtn:focus {
+  background-color: #2980B9;
+}
+
+/* The container <div> - needed to position the dropdown content */
+.dropdown1 {
+  top: 40px;
+  left: 55px;
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown2 {
+  top: 40px;
+  left: 135px;
+  position: relative;
+  display: inline-block;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+/* Change color of dropdown links on hover */
+.dropdown-content a:hover {background-color: #ddd}
+
+.calculate{
+  position: relative;
+  left: 100px;
+  top: 40px;
+  width: 105px;
+  height: 50px;
+  display: inline-block;
+  font-size: 16px;
+  background-color: rgb(214, 161, 69);
+  color: white;
+}
+
+/* .curr1 {
   left: 50px;
 }
 
@@ -73,81 +160,4 @@ input:focus {
 .curr3 {
   left: 220px;
   width: 100px;
-}
-
-button {
-    width: 146px;
-}
-
-.calculate {
-  position: relative;
-  left: 300px;
-  top: 15px;
-  width: 130px;
-  height: 50px;
-  display: inline-block;
-  font-size: 16px;
-  background-color: rgb(214, 161, 69);
-  color: white;
-}
-
-/* Dropdown Button */
-.dropbtn {
-    background-color: #E1C699;
-    color: white;
-    padding: 16px;
-    font-size: 16px;
-    border: none;
-    cursor: pointer;
-  }
-  
-/* Dropdown button on hover & focus */
-.dropbtn:hover, .dropbtn:focus {
-  background-color: #2980B9;
-}
-
-/* The container <div> - needed to position the dropdown content */
-.dropdown1 {
-  top: 15px;
-  left: 50px;  
-  position: relative;
-  display: inline-block;
-}
-
-/* Dropdown Content (Hidden by Default) */
-.dropdown-content {
-  display: none;
-  position: absolute;
-  background-color: #f1f1f1;
-  min-width: 160px;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-  z-index: 1;
-}
-
-/* Links inside the dropdown */
-.dropdown-content a {
-  color: black;
-  padding: 12px 16px;
-  text-decoration: none;
-  display: block;
-}
-
-/* Change color of dropdown links on hover */
-.dropdown-content a:hover {background-color: #ddd}
-
-/* The container <div> - needed to position the dropdown content */
-.dropdown2 {
-    top: 15px;
-    left: 134px;  
-    position: relative;
-    display: inline-block;
-  }
-
-/* The container <div> - needed to position the dropdown content */
-.dropdown3 {
-  top: 15px;
-  left: 288px;  
-  position: relative;
-  display: inline-block;
-  width: 210px;
 }
