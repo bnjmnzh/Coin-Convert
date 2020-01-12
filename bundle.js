@@ -36223,9 +36223,37 @@ const key = "99270389-23D4-4084-813C-1B77A1EEAB25";
           changeElementText("dropButton" + j, "XRP");
         })
       }
+
+      // Add click listener for convert button
+      let calculate = document.getElementById('calculate');
+      calculate.addEventListener("click", convertCurrency);
     }
   
   })(window, document, undefined);
+
+async function convertCurrency() {
+   let curr1 = document.getElementById('dropButton1').innerHTML;
+   let curr2 = document.getElementById('dropButton2').innerHTML;
+   if (curr1 == "Select Currency" || curr2 == "Select Currency") {
+     return;
+   }
+   
+   let amount1 = document.getElementById('input1').value;
+   let amount2 = document.getElementById('input2').value;
+   if (amount1 != "") {
+    // Convert from 1 to 2 (Default)
+    const body = await rp(url + curr1 + "/" + curr2 + "?apikey=" + key);
+    let responseJSON = JSON.parse(body);
+    document.getElementById('input2').value = (amount1 * responseJSON.rate).toFixed(8) + "";
+   } else if (amount2 != "") {
+    // Convert from 2 to 1
+    const body = await rp(url + curr2 + "/" + curr1 + "?apikey=" + key);
+    let responseJSON = JSON.parse(body);
+    document.getElementById('input1').value = (amount2 * responseJSON.rate).toFixed(8) + "";
+   } else {
+     console.log("No values to convert");
+   }
+}  
 
 function show(dropDownId) {
     var dropDown = document.getElementById(dropDownId);
