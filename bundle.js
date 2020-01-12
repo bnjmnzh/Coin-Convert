@@ -36175,6 +36175,54 @@ const key = "99270389-23D4-4084-813C-1B77A1EEAB25";
           show('dropdown-content' + j);
         })
       }
+
+      // Add click listerners drop dropdown elements
+      let sel = document.getElementsByClassName('selectCurr');
+      for (var i = 0; i < sel.length; i++) {
+        let j = i + 1;
+        sel[i].addEventListener("click", function(){
+          changeElementText("dropButton" + j, "Select Currency");
+        })
+      }
+      let cad = document.getElementsByClassName('cad');
+      for (var i = 0; i < cad.length; i++) {
+        let j = i + 1;
+        cad[i].addEventListener("click", function(){
+          changeElementText("dropButton" + j, "CAD");
+        })
+      }
+
+      let usd = document.getElementsByClassName('usd');
+      for (var i = 0; i < usd.length; i++) {
+        let j = i + 1;
+        usd[i].addEventListener("click", function(){
+          changeElementText("dropButton" + j, "USD");
+        })
+      }
+
+      let btc = document.getElementsByClassName('btc');
+      for (var i = 0; i < btc.length; i++) {
+        let j = i + 1;
+        btc[i].addEventListener("click", function(){
+          changeElementText("dropButton" + j, "BTC");
+        })
+      }
+      
+      let eth = document.getElementsByClassName('eth');
+      for (var i = 0; i < eth.length; i++) {
+        let j = i + 1;
+        eth[i].addEventListener("click", function(){
+          changeElementText("dropButton" + j, "ETH");
+        })
+      }
+
+      let xrp = document.getElementsByClassName('xrp');
+      for (var i = 0; i < xrp.length; i++) {
+        let j = i + 1;
+        usd[i].addEventListener("click", function(){
+          changeElementText("dropButton" + j, "XRP");
+        })
+      }
     }
   
   })(window, document, undefined);
