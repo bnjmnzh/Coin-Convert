@@ -1,6 +1,6 @@
 # Coin Convert
 
-A simple currency converter web-app that uses CoinAPI. Allows for conversion between USD, CAD, EUR, and AUD. Also allows for conversion to value of cryptocurrencies including BTC, ETH, XRP, BCH.
+A simple currency converter web-app that uses CoinAPI. Allows for conversion between USD, CAD, BTC, ETH, XRP.
 
 ## How it works
 1. Select currency in the two dropdown bars.
